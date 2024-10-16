@@ -15,11 +15,10 @@ void setup() {
 }
 void loop() {
   if (radio.available()) {
-    Serial.pringln("rf24 up")
+    Serial.println("rf24 up");
     char text[32] = "";
     radio.read(&text, sizeof(text));
     String Data = String(text);
-    Serial.println(text);
     Serial.println(text);
   }
 }
