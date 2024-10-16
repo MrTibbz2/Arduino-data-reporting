@@ -13,4 +13,5 @@ this allows us to send data between two arduinos easily.
 next week to-do list:
 - maybe integrate a display? (could be done later)
 - try and integrate a dht11 sensor
+- maybe make a system so that two way communication is possible
 
