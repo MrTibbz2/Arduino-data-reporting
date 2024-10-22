@@ -15,3 +15,4 @@ next week to-do list:
 - try and integrate a dht11 sensor
 - maybe make a system so that two way communication is possible
 
+<H1>currently the rf24 is being really weird an not even working... gonna troubleshoot.</H1>
