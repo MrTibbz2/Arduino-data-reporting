@@ -18,3 +18,4 @@ next week to-do list:
 <H1>week 3</H1>
 so uh.. currently the rf24 is being really weird an not even working... gonna troubleshoot. 
 After some careful good work with handling com ports like a dumbass I managed to cause a windows kernel error and a BSOD.... nice!
+End of week 3: ended up fucking around enough to find out, ended up just starting to work miraculously? I mean sure.... either way in week3-tx and week3-rx we've got two way communication working pretty well, the response packets dont like existing but thats fine.
