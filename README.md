@@ -152,8 +152,8 @@ void sendMessage(const char* message) {
 finally, the sendMessage function takes the data from the loop and transmits it. (also includes debug).
 
 
-
-```cpp 
+<h3>receiver?</h3>
+The receiver code looks almost identical, but instead of sending syn, it listens for it and sends ack.
 
 
 
