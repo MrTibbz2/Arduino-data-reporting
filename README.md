@@ -158,3 +158,7 @@ The receiver code looks almost identical, but instead of sending syn, it listens
 <h1>How could this be used in a real world application?</h1>
 
 Long ranged radio devices exist so that we are able to transmit and receive data without the need of human interaction. not only does it allow us to automate different parts of our lives, it allows for data to be collected when it wouldnt be possible due to safety reasons. High grade technology can be used in very hot, cold and extreme conditions where it wouldn't be safe for a human to do so. This project is simply a proof of concept of how these devices that power our daily lives work. There are countless examples where this can be used, such as bushfires, remote living areas where internet isn't available, underwater, and many many more. 
+
+<h3>Bushfires?</h3>
+
+Bushfires are just one example of where this could be used. Microcontrollers could be dropped into high risk areas to safely collect, transmit, and analyse temperature/humidity data. This can also be made cheap using easy to find components such as a raspberry pi pico, DHT11 sensors, and nrf24l01 transceivers. 
