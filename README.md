@@ -19,3 +19,6 @@ next week to-do list:
 so uh.. currently the rf24 is being really weird an not even working... gonna troubleshoot. 
 After some careful good work with handling com ports like a dumbass I managed to cause a windows kernel error and a BSOD.... nice!
 End of week 3: ended up fucking around enough to find out, ended up just starting to work miraculously? I mean sure.... either way in week3-tx and week3-rx we've got two way communication working pretty well, the response packets dont like existing but thats fine.
+
+<h1>week 4</h1>
+currently working on a system for a syn ack connect style authentication on startup. not sure how well itd work but wanted to write it from scratch so its a little simpler. 
