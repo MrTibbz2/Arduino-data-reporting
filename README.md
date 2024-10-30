@@ -22,8 +22,7 @@ End of week 3: ended up just starting to work miraculously? in week3-tx and week
 <h1>week 4</h1>
 currently working on a system for a syn ack connect style authentication on startup. Not sure how well it'd work but wanted to write it from scratch so its a little simpler. In week4tx and week4rx there is now a working system for transmitting and receiving from two linked arduinos. I have code for a dht11 sensor as well to tell what humidity and temp one arduino is in but well.... I mightve fried it.
 <h1>how does the code work</h1>
-in the tx.ino scripts the arduino does a few things. 
-<h2>1. library defining</h2>
+the tx.ino script does a few things. 
 
 ```cpp
 
