@@ -2,14 +2,12 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 
-// transmitter code
 RF24 radio(9, 10); // CE, CSN
 const byte writeaddress[6] = "00001"; // Address for device 1
 const byte readaddress[6] = "00002"; // Address for device 2
-bool RF24Linking = false; // Declare RF24Linking
-bool SynAckReady = false;
-bool RF24Link = false;
-const char SynSend = 10;
+const char SynSend = 10; // SYN signal
+const char SynAckResponse = 10; // ACK response character
+bool RF24Linking = false;
 bool AckListen = false;
 
 void setup() {
@@ -21,53 +19,48 @@ void setup() {
     radio.setDataRate(RF24_250KBPS);
     radio.setChannel(80);
     radio.startListening();
-    Serial.println("Device ready and listening...");
+    Serial.println("Transmitter ready and listening...");
 }
 
 void loop() {
-    if (RF24Linking == false) { // Fixed comparison
-        Serial.println("Attempting Syn/Ack connection");
+    if (!RF24Linking) {
+        Serial.println("Attempting SYN connection...");
         updateSynAckState();
     }
-    
-    if (RF24Link == true) { // Handle incoming messages
+
+    if (AckListen) {
         if (radio.available()) {
-            char receivedText[32] = "";
-            radio.read(receivedText, sizeof(receivedText));
-            Serial.print("Received: ");
-            Serial.println(receivedText);
+            char AckResponse;
+            radio.read(&AckResponse, sizeof(AckResponse));
+            if (AckResponse == SynAckResponse) {
+                Serial.println("ACK received.");
+                AckListen = false; // Stop listening for ACK
+            }
         }
     }
-    
-    if (RF24Link == true) { // Check for outgoing messages
-        if (Serial.available() > 0) {
-            String inputString = Serial.readStringUntil('\n');
-            sendMessage(inputString.c_str());
-        }
-    } 
-    
-    if (AckListen == true) { // Check for ACK responses
-        char AckResponse[32]; // Declare as an array
-        radio.startListening();
-        Serial.println("Listening for ACK response...");
-        radio.read(AckResponse, sizeof(AckResponse));
-        if (AckResponse[0] == 10) { // Check the first character of the response
-            RF24Link = true;
-            AckListen = false;
-            Serial.println("response received");
-        }
+
+    // Handle incoming messages
+    if (radio.available()) {
+        char receivedText[32] = "";
+        radio.read(receivedText, sizeof(receivedText));
+        Serial.print("Received: ");
+        Serial.println(receivedText);
+    }
+
+    // Check for outgoing messages
+    if (Serial.available() > 0) {
+        String inputString = Serial.readStringUntil('\n');
+        sendMessage(inputString.c_str());
     }
 }
 
 void updateSynAckState() {
-    if (RF24Linking == false) { // Fixed comparison
-        radio.stopListening();
-        radio.write(&SynSend, sizeof(SynSend)); // Send single character
-        Serial.println("Attempting RF24 connection link");
-        radio.startListening();
-        AckListen = true;
-        RF24Linking = true; // Update RF24Linking to true
-    }
+    radio.stopListening();
+    radio.write(&SynSend, sizeof(SynSend)); // Send SYN signal
+    Serial.println("SYN sent, waiting for ACK...");
+    radio.startListening();
+    AckListen = true; // Start listening for ACK
+    RF24Linking = true; // Update state
 }
 
 void sendMessage(const char* message) {
@@ -85,3 +78,4 @@ void sendMessage(const char* message) {
     delay(100); // Wait for a moment
     radio.startListening(); // Start listening again
 }
+
