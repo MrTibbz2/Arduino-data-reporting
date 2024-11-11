@@ -161,4 +161,8 @@ Long ranged radio devices exist so that we are able to transmit and receive data
 
 <h3>Bushfires?</h3>
 
-Bushfires are just one example of where this could be used. Microcontrollers could be dropped into high risk areas to safely collect, transmit, and analyse temperature/humidity data. This can also be made cheap using easy to find components such as a raspberry pi pico, DHT11 sensors, and nrf24l01 transceivers. 
+Bushfires are just one example of where this could be used. Microcontrollers could be dropped into high risk areas to safely collect, transmit, and analyse temperature/humidity data. This can also be made cheap using easy to find components such as a raspberry pi pico, DHT11 sensors, and nrf24l01 transceivers.
+
+<h1>how is it assembled?</h1>
+
+
