@@ -182,7 +182,7 @@ The **nRF24L01** is a low-power, 2.4 GHz wireless module commonly used in short-
 - **Power consumption**: Very low, with sleep modes
 - **Channels**: 125 available channels
 
-## Key Concepts
+## how is it configured
 
 ### 1. Pipes and Addresses
 
