@@ -236,19 +236,3 @@ The nRF24L01 supports **auto-acknowledgment** and **retransmission**. If a trans
 
 The module supports **dynamic payload length**, which means the size of the data can vary per packet. This allows for more efficient communication when sending data of different sizes.
 
-## Example Setup
-
-### Receiver Setup
-
-1. Set **Pipe 0** to listen for data at address `0xE7E7E7E7E7`.
-2. Enable **auto-acknowledgment** and **CRC**.
-3. The receiver waits for data on Pipe 0 and sends an acknowledgment when received.
-
-### Transmitter Setup
-
-1. Send data to address `0xE7E7E7E7E7` via **Pipe 0**.
-2. If the receiver doesn’t acknowledge, the transmitter retries automatically.
-
-## Conclusion
-
-The **nRF24L01** is a versatile, low-power wireless module ideal for short-range communication. With **pipes** and **addresses**, it can communicate with multiple devices. Features like **auto-acknowledgment**, **retransmission**, and **dynamic payload** length make it a reliable and flexible choice for wireless applications in IoT, sensor networks, and remote control systems.
